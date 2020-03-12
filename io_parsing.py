@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 
 import data_models
@@ -38,6 +39,20 @@ def read_problem(input_file_name):
     return data_models.ProblemInstance(board, developer_list, manager_list)
 
 
+def write_solution(developer_postions,
+                   manager_postions,
+                   output_file_name=sys.stdout):
+    '''
+    developer_postions, manager_postions assumed to be lists of tuples
+    (row, col). output will be returned as (col, row)
+    '''
+    for pos in developer_postions + manager_postions:
+        if pos is not None:
+            print(f'{pos[1]} {pos[0]}', file=output_file_name)
+        else:
+            print('X', file=output_file_name)
+
+
 def convert_board_tile(board_tile):
     if board_tile == '_':
         return 1
@@ -47,5 +62,9 @@ def convert_board_tile(board_tile):
 
 
 if __name__ == '__main__':
-    p = read_problem('a_solar.txt')
-    print(p)
+    # p = read_problem('a_solar.txt')
+    # print(p)
+
+    d = [(0, 0), (0, 1), None, (2, 1), (0, 0), (0, 1), None, (2, 1)]
+    m = [(0, 0), None, (0, 1), (2, 1)]
+    write_solution(d, m)
