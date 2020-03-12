@@ -10,3 +10,7 @@ dependencies:
   - python-cufflinks=0.17
   - jupyter=1.0.0
   - jupytext=1.3.4
+  # linters
+  - mypy
+  - pylint
+  - pylama
