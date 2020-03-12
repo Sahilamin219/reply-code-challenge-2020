@@ -30,7 +30,7 @@ def populate_res(res_list: list,
     return chromosome
 
 
-def make_population(size: int, chromosome_res: list) -> list:
+def make_population(size: int, chromosome_res: list) -> None:
     pass
 
 # D = [(1,2), (,), (3,4)], |D|= tot developer
