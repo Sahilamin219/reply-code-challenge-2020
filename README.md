@@ -2,18 +2,32 @@
 
 ## MEGLIO UN UOVO OGGI CHE UNA GALLINA DOMANI
 ## It is better to relax constraints and make assumptions that allow for a solution _now_ rather than finding the optimal solution in 1 hour.
+
 https://challenges.reply.com/tamtamy/home.action
 
+## Workspace
 
-Workspace:
-* telegram
+* Telegram
 * ide (if vscode, take a couple minutes to install all needed linters/formatters/etc, set up python interpreter, etc)
 * browser
+* Google Hangouts
 * anything else?
 
-## Enrivonment
-1. `$ conda create -n reply python=3.6 numpy`
+## Dev Enrivonment
+
+1. `$ conda env create -f environment.yml`
 2. `$ conda activate reply`
+3. (**optional**) Make the new conda environment available as a Jupiter kernel:
+
+   ```bash
+   $ python -m ipykernel install --user --name reply --display-name "reply"
+   ```
+
+If additional packages are needed throughout the challenge, add them to `environment.yml` and run
+
+```bash
+$ conda env update -f environment.yml
+```
 
 ## Attack plan
 1. Fast read of the problem statement (~30 min) to identify:
@@ -32,8 +46,10 @@ Workspace:
 ## Notes
 1. Docstrings are not needed, but commenting (ideally before writing code) is much appreciated
 2. Don't wait long before asking eachother questions if something is unclear, not well defined, etc
-3. There's always gonna be a much better solution we would like to implement, but let's focus on actually sending a solution first
+3. There's always gonna be a much better solution we would like to implement, but let's focus on actually sending a
+   solution first
 4. Brute force solutions are indeed solutions
 5. Random feasible solutions are indeed solutions
 6. Heuristics can be a useful tool to improve on 5. and 6.
-7. Genetic algorithms, graph search, linear programming are typically what first comes to mind, but they're not easy to formalize and implement in 4 hours
+7. Genetic algorithms, graph search, linear programming are typically what first comes to mind, but they're not easy to
+   formalize and implement in 4 hours
