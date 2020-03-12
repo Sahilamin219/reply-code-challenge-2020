@@ -17,8 +17,8 @@ class ProblemInstance():
 
 
 class Resource():
-    company = None
-    bonus = None
+    company: str = ''
+    bonus: int = 0
     skill_set: Set[str] = set()
 
     def __init__(self, company, bonus, skill_set=None):
@@ -26,7 +26,7 @@ class Resource():
         self.bonus = bonus
 
         if skill_set is not None:
-            self.skill_set = skill_set
+            self.skill_set = set(skill_set)
 
     def add_skill(self, skill):
         self.skill_set.add(skill)
