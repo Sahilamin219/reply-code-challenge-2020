@@ -1,5 +1,5 @@
 ### Project-specific ###
-
+*.ipynb
 ### Python ###
 
 # Byte-compiled / optimized / DLL files
