@@ -22,7 +22,7 @@ def fitness(prob_inst, dev_loc, man_loc):
     # Change to list of tuple, each tuple is a coordinate in the map
     all = dev_loc + man_loc
     all_loc_dict = {loc: i for i, loc in enumerate(all)}
-    all_couple_loc = set()
+    all_couple_loc = list()
     for loc in all:
         # Take only not empty tumples
         if loc == ():
@@ -34,18 +34,33 @@ def fitness(prob_inst, dev_loc, man_loc):
         loc_l = (loc[0]-1, loc[1])
         # update only if exist
         if loc_t in all:
-            all_couple_loc.update({loc, loc_t})
+            all_couple_loc.append((loc, loc_t))
         if loc_b in all:
-            all_couple_loc.update({loc, loc_b})
+            all_couple_loc.append((loc, loc_b))
         if loc_r in all:
-            all_couple_loc.update({loc, loc_r})
+            all_couple_loc.append((loc, loc_r))
         if loc_l in all:
-            all_couple_loc.update({loc, loc_l})
+            all_couple_loc.append((loc, loc_l))
     # change set of set in list of tuple
-    all_couple_list = list(tuple(c) for c in all_couple_loc)
-    all_r = prob_inst.developer_list + prob_inst.mangers_list
-    all_couple_r = [[all_r[all_loc_dict[x]], all_r[all_loc_dict[y]]] for x, y in all_couple_list]
-    return sum(total_potential(couple_r[0], couple_r[1]) for couple_r in all_couple_r)
+    print(all_couple_loc)
+    all_r = prob_inst.developer_list + prob_inst.manager_list
+    print([(x,y) for x,y in all_couple_loc])
+    all_couple_r = [[all_r[all_loc_dict[x]], all_r[all_loc_dict[y]]] for x, y in all_couple_loc]
+    return sum(total_potential(couple_r[0], couple_r[1]) for couple_r in all_couple_r)/2
 
 
+a = Resource('opn', 7, ['java', 'bpm'])
+b = Resource('clstr', 5, ['python', 'azure'])
+c = Resource('opn', 8, ['python', 'java'])
+d = Resource('com_vl', 4,['java', 'cybersecurity', 'big', 'data'])
+e = Resource('mac', 1, ['nlp', 'big_data'])
+f = Resource('clstr', 3, 'azure c')
+g = Resource('com_vl', 6, ['cybersecurity', 'python'])
+h = Resource('opn', 2, ['bpm', 'python', 'project_management'])
 
+P = ProblemInstance(None, [a,b,c,d,e], [f,g,h])
+
+dev_loc = [(0,1),(0,2),(1,2),(),()]
+man_loc = [(1,0),(),()]
+
+print(fitness(P, dev_loc, man_loc))
