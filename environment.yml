@@ -5,6 +5,7 @@ channels:
 dependencies:
   - python=3.7.6
   - numpy=1.18.1
+  - scipy=1.4.1
   - pandas=0.25.3
   - plotly=4.5.0
   - python-cufflinks=0.17
