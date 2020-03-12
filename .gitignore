@@ -150,6 +150,10 @@ cython_debug/
 # !.vscode/extensions.json
 *.code-workspace
 
+### PyCharm ###
+
+.idea/*
+
 ### Windows ###
 
 # Windows thumbnail cache files
