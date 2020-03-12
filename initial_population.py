@@ -30,7 +30,8 @@ def populate_res(res_list: list,
     return chromosome
 
 
-def make_population(size: int,
+def make_population(prob,
+                    size: int,
                     dev_seats: list,
                     man_seats: list) -> list:
     population = []
@@ -46,16 +47,3 @@ def make_population(size: int,
 
 # D = [(1,2), (,), (3,4)], |D|= tot developer
 # M = [(5,5), (,)], |M|= tot manager
-
-
-if __name__ == '__main__':
-    prob = io_parsing.read_problem('f_glitch.txt')
-    dev_seats = gimme_dev_seats(prob.board)
-    man_seats = gimme_man_seats(prob.board)
-    dev = make_population(1, dev_seats, man_seats)[0][0]
-    man = make_population(1, dev_seats, man_seats)[0][1]
-    io_parsing.write_solution(dev, man)
-    # genera un cromosoma dei dev
-    #print(populate_res(prob.developer_list, dev_seats))
-    # genera un cromosoma dei man
-    #print(populate_res(prob.manager_list, man_seats))
