@@ -47,7 +47,7 @@ def write_solution(developer_postions,
     (row, col). output will be returned as (col, row)
     '''
     for pos in developer_postions + manager_postions:
-        if pos is not None:
+        if pos:
             print(f'{pos[1]} {pos[0]}', file=output_file_name)
         else:
             print('X', file=output_file_name)
