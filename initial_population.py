@@ -31,6 +31,7 @@ def populate_res(res_list: list,
 
 
 def make_population(size: int, chromosome_res: list) -> None:
+
     pass
 
 # D = [(1,2), (,), (3,4)], |D|= tot developer
@@ -38,7 +39,7 @@ def make_population(size: int, chromosome_res: list) -> None:
 
 
 if __name__ == '__main__':
-    prob = io_parsing.read_problem('/home/pjk/Documents/reply-code-challenge-2020/a_solar.txt')
+    prob = io_parsing.read_problem('a_solar.txt')
     dev_seats = gimme_dev_seats(prob.board)
     man_seats = gimme_man_seats(prob.board)
     # genera un cromosoma dei dev
